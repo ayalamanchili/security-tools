@@ -1,4 +1,4 @@
-    name: Run Garak model scan
+    name: Run Garak Hugging Face Scan
 
     on:
       push:
@@ -25,7 +25,7 @@
               garak --list_probes | head
 
           - name: Setup Secrets
-            with: # Set the secret as an input
+            env:
               MY_HF_TOKEN: ${{ secrets.MY_HF_TOKEN }}
 
           - name: Run Garak Test Scan
