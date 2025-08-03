@@ -24,10 +24,6 @@
               python -m pip install -U garak
               garak --list_probes | head
 
-          - name: Setup Secrets
-            env:
-              MY_HF_TOKEN: ${{ secrets.MY_HF_TOKEN }}
-
           - name: Run Garak Test Scan
             run: |
               export HF_INFERENCE_TOKEN=${{ secrets.MY_HF_TOKEN }}
