@@ -1,0 +1,30 @@
+    name: Run Garak model scan
+
+    on:
+      push:
+        branches:
+          - main
+
+    jobs:
+      run-garak-scan:
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: Checkout repository
+            uses: actions/checkout@v4
+
+          - name: Set up Python
+            uses: actions/setup-python@v5
+            with:
+              python-version: '3.x' # Specify your desired Python version
+
+          - name: Install Garak
+            run: |
+              python -m pip install --upgrade pip
+              python -m pip install -U garak
+              garak --list_probes | head
+
+          - name: Run Garak Test Scan
+            run: |
+              export HF_INFERENCE_TOKEN=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
+              garak --model_type huggingface --model_name openai-community/gpt2 --probes dan         
