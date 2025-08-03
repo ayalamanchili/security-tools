@@ -12,6 +12,6 @@ print(f"CVSSv3 Vector: {cvss_vector}")
 cve_id = fake.cve()
 print(f"CVE Identifier: {cve_id}")
 
-# Generate an npm semantic version range
+
 npm_range = fake.npm_semver_range()
 print(f"NPM Semver Range: {npm_range}")
