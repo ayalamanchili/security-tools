@@ -24,7 +24,11 @@
               python -m pip install -U garak
               garak --list_probes | head
 
+          - name: Setup Secrets
+            with: # Set the secret as an input
+              MY_HF_TOKEN: ${{ secrets.MY_HF_TOKEN }}
+
           - name: Run Garak Test Scan
             run: |
-              export HF_INFERENCE_TOKEN=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
+              export HF_INFERENCE_TOKEN=${{ secrets.MY_HF_TOKEN }}
               garak --model_type huggingface --model_name openai-community/gpt2 --probes dan         
